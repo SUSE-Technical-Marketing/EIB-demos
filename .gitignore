@@ -1,0 +1,6 @@
+
+# FILE WITH REAL VALUES FOR EIB
+mgmt-single-node/eib/mgmt-cluster-singlenode-ok.yaml
+
+# FOLDER WITH VALUES FOR DEPLOYING
+mgmt-single-node/eib-ok/*
