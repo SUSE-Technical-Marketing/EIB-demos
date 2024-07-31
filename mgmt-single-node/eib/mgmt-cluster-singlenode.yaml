@@ -2,7 +2,7 @@ apiVersion: 1.0
 image:
   imageType: iso
   arch: x86_64
-  baseImage: ${SLE-Micro.x86_64-verion.iso}
+  baseImage: ${SLE-Micro_IMAGE}
   outputImageName: eib-mgmt-cluster-image.iso
 operatingSystem:
   isoConfiguration:
@@ -19,13 +19,13 @@ operatingSystem:
   keymap: us
   users:
     - username: root
-      encryptedPassword: ${USER-PASSWORD}
+      encryptedPassword: ${ROOT_PASSWORD}
       createHomeDir: true
 
     - username: suse-user
-      encryptedPassword: ${USER-PASSWORD}
+      encryptedPassword: ${USER_PASSWORD}
       sshKeys:
-        - ${ssh-rsa}
+        - ${SSH_KEY}
 
       createHomeDir: true
       secondaryGroups:
@@ -35,10 +35,10 @@ operatingSystem:
       - git
       - jq
     additionalRepos:
-    sccRegistrationCode: ${REGISTRATION-CODE}
+    sccRegistrationCode: ${SCC_REGISTRATION_CODE}
 
 kubernetes:
-  version: ${KUBERNETES-VERSION}
+  version: ${KUBERNETES_VERSION}
       - name: cert-manager
         repositoryName: jetstack
         version: 1.14.2
