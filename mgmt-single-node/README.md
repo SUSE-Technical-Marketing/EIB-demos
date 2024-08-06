@@ -3,11 +3,11 @@
 
 
 ## Intro
-The main idea of this repo is helping you to build an ISO image that allows you to deploy a management cluster for SUSE ATIP or SUSE Edge in a simple manner. However, you can use this resources to deploy a Rancher management cluster running on SLE Micro just adapting the configuration. We will use Edge Image Builder or EIB to do so.
+The main purpose of this repo is helping you to build an ISO image that allows you to deploy a management cluster for SUSE ATIP or SUSE Edge in a simple manner. However, you can use this resources to deploy a Rancher management cluster running on SLE Micro just adapting the configuration. We will use Edge Image Builder or EIB to build a ready-to-deploy ISO image that will provide a fully-functional single node cluster running on SLE Micro, RKE2 and with Rancher on top of it.
 
 ## Structure
 
-What you can see is the structure to build with EIB the ISO image needed to deploy the single node RKE2 with Rancher on top with all the bits and pieces to use CAPI and Metal3 to deploy and manage downstream clusters. Also we create a systemd service to make sure that if the node reboots the management layer will be up and running as soon as possible.
+This is the structure to build with EIB the ISO image needed, this has to be inside the eib folder once you clone the EIB git repository. Otherwise the process will fail, in case that happens chwck in the ```_build``` folder, there you'll find all the logs created during an ISO creation process.
 
 ```
 .
@@ -40,8 +40,10 @@ What you can see is the structure to build with EIB the ISO image needed to depl
 
 ```
 
-This is an example of using Edge Image Builder (EIB) to generate a management cluster iso image for SUSE ATIP. The management cluster will contain the following components:
-- SUSE Linux Enterprise Micro 5.5 Kernel (SLE Micro)
+# Process
+
+This example uses Edge Image Builder (EIB) to generate a management cluster iso image for SUSE ATIP. The management cluster will contain the following components:
+- SUSE Linux Enterprise Micro 6.0 (SLE Micro)
 - RKE2
 - CNI plugins (e.g. Multus, Cilium)
 - Rancher Prime
@@ -50,11 +52,11 @@ This is an example of using Edge Image Builder (EIB) to generate a management cl
 - Static IPs or DHCP network configuration
 - Metal3 and the CAPI provider
 
-This article is oriented for ATIP. However, you can modify which components you want to install. You can install just RKE2 with Cilium and Rancher Prime if you are building a lab or a test environment.
+You can pick which components you want to install. You can install just RKE2 with Cilium and Rancher Prime if you are building a lab or a test environment.
 
 Before creating the ISO with EIB, is necessary to modify the following values in the `mgmt-cluster-singlenode.yaml` file:
 
-- `${ROOT_PASSWORD}` - The root password for the management cluster. This could be generated using `openssl passwd -6 PASSWORD` and replacing PASSWORD with the desired password, and then replacing the value in the `mgmt-cluster-singlenode.yaml` file. The final rancher password will be configured based on the file `custom/files/basic-setup.sh`.
+- `${ROOT_PASSWORD}` - The root password for the management cluster. This could be generated using `openssl passwd -6 PASSWORD` and replacing PASSWORD with the desired password, and then replacing the value in the `mgmt-cluster-singlenode.yaml` file, this is the OS password. The final Rancher password will be configured based on the file `custom/files/basic-setup.sh`.
 
 - `${USER_PASSWORD}` - The suse-user password for the management cluster. This could be generated using `openssl passwd -6 PASSWORD` and replacing PASSWORD with the desired password, and then replacing the value in the `mgmt-cluster-singlenode.yaml` file. SLE Micro 6.0 doesn't allow ssh login as root user, always is best having a user that is not root for rutinary OS maintenance.
 
