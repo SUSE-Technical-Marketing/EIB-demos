@@ -5,4 +5,4 @@ mgmt-single-node/eib-ok/*
 
 # MAC files
 
-*.DS_Store
+**/.DS_Store
