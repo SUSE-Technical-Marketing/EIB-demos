@@ -2,3 +2,7 @@
 
 # FOLDER WITH VALUES FOR DEPLOYING
 mgmt-single-node/eib-ok/*
+
+# MAC files
+
+*.DS_Store

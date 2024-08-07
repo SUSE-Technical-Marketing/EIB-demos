@@ -9,4 +9,4 @@ In case you don't know about Edge Image Builder you can start:
 
 - Single cluster Rancher management cluster for SUSE ATIP. ../mgmt-single-node/
 
-
+- Single node k3s demo + Helm chart deployment ../k3s-snode-helm/

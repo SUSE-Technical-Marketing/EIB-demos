@@ -29,7 +29,9 @@ What you can find in here?
 
 ```
 
-In the ../custom/scripts/ you find a basic configuration script for the files containes in the files folder, and outside you have a script that configures access to k3s adfter the installation. These are combustion scripts, and for combustion there are priorities to run scripts, the higher the number the lower the priority. These scripts starting with 70 and 80 will run the last ones.
+In the ../custom/scripts/ you find a basic configuration script for the files containes in the files folder, and outside you have a script that configures access to k3s adfter the installation. These are combustion scripts, and for combustion there are priorities to run scripts, the higher the number the lower the priority. These scripts starting with 70 and 80 will run the last ones. 
+
+** NOTE: Notice that the custom content to install and configure the k9s cli is not prersent in the repo because of the size, other than that the repo works as it is. **
 
 The file eib-k3s-helm.yaml is the definition file file for EIB, in this file you provide the OS configuration, the basic k8s configuation and source to build the ISO image.
 
