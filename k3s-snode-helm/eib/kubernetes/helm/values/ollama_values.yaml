@@ -1,0 +1,10 @@
+ollama:
+  models:
+    - llama3
+ingress:
+  enabled: true
+  hosts:
+    - host: eibnode.suse.lan
+      paths:
+        - path: /
+          pathType: Prefix

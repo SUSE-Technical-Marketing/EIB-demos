@@ -1,0 +1,27 @@
+routes:
+  config:
+  - destination: 0.0.0.0/0
+    metric: 100
+    next-hop-address: 192.168.8.1
+    next-hop-interface: eth0
+    table-id: 254
+  - destination: 192.168.8.0/24
+    metric: 100
+    next-hop-address:
+    next-hop-interface: eth0
+    table-id: 254
+dns-resolver:
+  config:
+    server:
+    - 192.168.8.1
+    - 8.8.8.8
+interfaces:
+- name: eth0
+  type: ethernet
+  state: up
+  mac-address: ${MAC_ADDRESS}
+  ipv4:
+    dhcp: true
+    enabled: true
+  ipv6:
+    enabled: false
