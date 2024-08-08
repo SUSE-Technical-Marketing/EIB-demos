@@ -1,0 +1,5 @@
+write-kubeconfig-mode: "0644"
+node-label:
+  - "foo=bar"
+  - "something=amazing"
+cluster-init: true

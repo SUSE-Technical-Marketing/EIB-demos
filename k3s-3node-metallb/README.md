@@ -69,8 +69,31 @@ the process will create the ISO image.
 
 **NOTE: To use different versions of EIB you need to change the version of the EIB container, in this case we use the versions 1.0.1**
 
+## What is needed for this demo?
 
-Important links:
+
+### Option 1 - Bare Metal deployment
+
+- 3 NUCs/PCs + a switch. 2 cores and 8GB RAM are recommended with 128 SSD disk.
+
+- 4 Free IPs
+
+- A VM or separated computer with internet connectivity and running linux to create the ISO image.
+
+- A USB drive to install the image.
+
+
+### Option 2
+
+- 3 VMs with the same requirements than the previous option.
+
+- 4 Free IPs
+
+- A VM or separated computer with internet connectivity and running linux to create the ISO image.
+
+
+
+## Important links
 
 - https://suse-edge.github.io/components-eib.html
 
