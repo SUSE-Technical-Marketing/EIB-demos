@@ -17,7 +17,7 @@ interfaces:
   mac-address: ${NODE_MAC}
   ipv4:
     address:
-    - ip: ${NODE_IP}  
+    - ${NODE_IP}
       prefix-length: 24
     dhcp: false
     enabled: true

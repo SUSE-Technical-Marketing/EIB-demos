@@ -5,6 +5,8 @@
 ## Intro
 The main purpose of this repo is helping you to build an ISO image that allows you to deploy a management cluster for SUSE ATIP or SUSE Edge in a simple manner. However, you can use this resources to deploy a Rancher management cluster running on SLE Micro just adapting the configuration. We will use Edge Image Builder or EIB to build a ready-to-deploy ISO image that will provide a fully-functional single node cluster running on SLE Micro, RKE2 and with Rancher on top of it.
 
+This deployment is based on what we will be coming on SUSE ATIP/Edge 3.1. However, some of the releases in the helm charts may need an update which will happen as soon as I have the final version for all the components.
+
 ## Structure
 
 This is the structure to build with EIB the ISO image needed, this has to be inside the eib folder once you clone the EIB git repository. Otherwise the process will fail, in case that happens chwck in the ```_build``` folder, there you'll find all the logs created during an ISO creation process.

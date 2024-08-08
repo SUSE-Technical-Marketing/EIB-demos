@@ -5,27 +5,25 @@ Clone EIB repo and inside the repo copy the eib folder you'll find inside this o
 What you can find in here? 
 ```
 .
-├── custom
-│   ├── 80-k3s-post-install.sh
-│   ├── files
-│   │   ├── k9s
-│   │   └── k9s_Linux_amd64.tar.gz
-│   └── scripts
-│       └── 70-tools.sh
-├── eib-k3s-helm.yaml
-├── kubernetes
-│   ├── config
-│   │   └── server.yaml
-│   └── helm
-│       └── values
-│           └── ollama_values.yaml
-├── network
-│   └── eibnode.suse.lan.yaml
-└── rpms
-    └── gpg-keys
-        └── rancher-public.key
+├── README.md
+└── eib
+    ├── cmd_line.sh
+    ├── custom
+    │   └── scripts
+    │       └── 80-k3s-post-install.sh
+    ├── eib-k3s-3node.yaml
+    ├── kubernetes
+    │   └── config
+    │       └── server.yaml
+    ├── network
+    │   ├── node1.edge.demo.yaml
+    │   ├── node2.edge.demo.yaml
+    │   └── node3.edge.demo.yaml
+    └── rpms
+        └── gpg-keys
+            └── rancher-public.key
 
-10 directories, 9 files
+8 directories, 9 files
 
 ```
 
