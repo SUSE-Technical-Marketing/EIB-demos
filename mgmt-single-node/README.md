@@ -87,7 +87,7 @@ You need to modify the following values in the `custom/scripts/99-register.sh` f
 
 You need to modify the following folder:
 
-- `base-images` - To include inside the `SLE-Micro.x86_64-5.5.0-Default-SelfInstall-GM2.install.iso` and  `SL-Micro.x86_64-6.0-Default-SelfInstall-GM.install.iso` images downloaded from the SUSE Customer Center.
+- `base-images` - To include inside the `SLE-Micro.x86_64-5.5.0-Default-SelfInstall-GM2.install.iso` and `SL-Micro.x86_64-6.0-Default-SelfInstall-GM.install.iso` images downloaded from the SUSE Customer Center.
 
 ## Optional modifications
 
@@ -130,7 +130,7 @@ where the ca-additional.crt is the certificate file that you want to use to prov
 
 ## Building the Management Cluster Image using EIB
 
-1. Clone this repo and navigate to the `telco-examples/mgmt-cluster/single-node/eib` directory.
+1. Clone this repo and navigate to the `mgmt-single-node/eib` directory.
 
 2. Modify the files described above.
 
