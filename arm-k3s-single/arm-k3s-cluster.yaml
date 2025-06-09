@@ -7,16 +7,33 @@ image:
 operatingSystem:
   isoConfiguration:
     installDevice: /dev/sda
+  time:
+    timezone: Europe/Paris
+    ntp:
+      forceWait: true
+      pools:
+        - 2.suse.pool.ntp.org
+  systemd:
+    enable:
+      - cockpit.socket
+  keymap: us
   users:
   - username: root
-    encryptedPassword: "$6$DIL3SYTayoaM13GP$zAfXEofZd154Wuuj.fMqJXKd2p8fieu75zLgta6dWz7rCHsxw0x4CcFjLH3V5Dy4sQKN9/VotNS9E37RYRTeD."
+    encryptedPassword: ${ROOT_PASSWORD}
+    createHomeDir: true
+
+  - username: suse-user
+    encryptedPassword: ${USER_PASSWORD}
+    createHomeDir: true
+
   packages:
     packageList:
     - jq
     - container-selinux
     - k3s-selinux
     - git
-    sccRegistrationCode: INTERNAL-USE-ONLY-4218-f657
+    sccRegistrationCode: ${SCC_REGISTRATION_CODE}
+
 kubernetes:
   version: v1.32.2+k3s1
   helm:
