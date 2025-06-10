@@ -1,12 +1,12 @@
-apiVersion: 1.0
+apiVersion: 1.2
 image:
-  imageType: iso
+  imageType: raw
   arch: aarch64
   baseImage: SL-Micro.aarch64-6.1-Default-GM.raw.xz
   outputImageName: arm-k3s-cluster.raw
 operatingSystem:
-  isoConfiguration:
-    installDevice: /dev/sda
+  rawConfiguration:
+    diskSize: 30G
   time:
     timezone: Europe/Paris
     ntp:
