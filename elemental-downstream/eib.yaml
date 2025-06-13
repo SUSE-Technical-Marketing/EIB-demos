@@ -1,0 +1,26 @@
+apiVersion: 1.1
+image:
+  arch: aarch64
+  imageType: raw
+  baseImage: SL-Micro.aarch64-6.0-Default-GM2.raw
+  outputImageName: elemental-image.raw
+operatingSystem:
+  time:
+    timezone: Europe/London
+    ntp:
+      forceWait: true
+      pools:
+        - 1.pool.server.com
+      servers:
+        - 10.0.0.1
+        - 10.0.0.2
+  rawConfiguration:
+    diskSize: 10G
+  users:
+    - username: root
+      createHomeDir: true
+      encryptedPassword: xxx
+      sshKeys:
+        - ssh-rsa xxx
+  packages:
+    sccRegistrationCode: xxx

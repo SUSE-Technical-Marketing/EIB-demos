@@ -1,0 +1,8 @@
+elemental:
+  registration:
+    url: https://rancher-192-168-205-101.sslip.io/elemental/registration/khtlpfts5b4nmb67gnzwxd66n596jtcg4pgjxq2ch6z2kpctb8hxvz
+    ca-cert: |-
+      -----BEGIN CERTIFICATE-----
+      xxx
+      -----END CERTIFICATE-----
+    auth: tpm

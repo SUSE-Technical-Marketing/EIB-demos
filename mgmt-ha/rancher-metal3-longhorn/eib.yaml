@@ -1,0 +1,96 @@
+apiVersion: 1.1
+image:
+  imageType: raw
+  arch: x86_64
+  baseImage: SL-Micro.x86_64-6.0-Base-GM2.raw
+  outputImageName: 32-mgmt-cluster.raw
+operatingSystem:
+  rawConfiguration:
+    diskSize: 40G
+  packages:
+    packageList:
+      - jq
+      - open-iscsi
+      - qemu-guest-agent
+      - openssh-server-config-rootlogin
+    sccRegistrationCode: xxx
+  systemd:
+    disable:
+      - rebootmgr.service
+      - transactional-update.timer
+      - transactional-update-cleanup.timer
+    enable:
+      - qemu-guest-agent
+  users:
+    - username: root
+      createHomeDir: true
+      encryptedPassword: xxx
+      sshKeys:
+        - ssh-rsa xxx
+kubernetes:
+  network:
+    apiVIP: 192.168.123.10
+    apiHost: 192-168-123-10.sslip.io
+  nodes:
+    - hostname: vm1
+      initializer: true
+      type: server
+    - hostname: vm2
+      type: server
+    - hostname: vm3
+      type: server
+  helm:
+    charts:
+      - name: metal3-chart
+        version: 302.0.0+up0.9.0
+        repositoryName: suse-edge-charts
+        targetNamespace: metal3-system
+        createNamespace: true
+        installationNamespace: kube-system
+        valuesFile: metal3.yaml
+      - name: rancher-turtles-chart
+        version: 302.0.0+up0.14.1
+        repositoryName: suse-edge-charts
+        targetNamespace: rancher-turtles-system
+        createNamespace: true
+        installationNamespace: kube-system
+      - createNamespace: true
+        installationNamespace: kube-system
+        name: rancher
+        repositoryName: rancher-prime
+        targetNamespace: cattle-system
+        valuesFile: rancher.yaml
+        version: 2.10.1
+      - createNamespace: true
+        installationNamespace: kube-system
+        name: cert-manager
+        repositoryName: jetstack
+        targetNamespace: cert-manager
+        valuesFile: certmanager.yaml
+        version: 1.14.2
+      - name: longhorn-crd
+        version: 105.1.0+up1.7.2
+        repositoryName: rancher
+        targetNamespace: longhorn-system
+        createNamespace: true
+        installationNamespace: kube-system
+      - name: longhorn
+        version: 105.1.0+up1.7.2
+        repositoryName: rancher
+        targetNamespace: longhorn-system
+        createNamespace: true
+        installationNamespace: kube-system
+    repositories:
+      - name: rancher-prime
+        plainHTTP: false
+        skipTLSVerify: true
+        url: https://charts.rancher.com/server-charts/prime
+      - name: jetstack
+        plainHTTP: false
+        skipTLSVerify: true
+        url: https://charts.jetstack.io
+      - name: suse-edge-charts
+        url: oci://registry.suse.com/edge/3.2
+      - name: rancher
+        url: https://charts.rancher.io
+  version: v1.31.6+rke2r1

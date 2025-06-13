@@ -1,0 +1,10 @@
+global:
+  ironicIP: 192.168.123.12
+  enable_vmedia_tls: false
+  additionalTrustedCAs: false
+metal3-ironic:
+  global:
+    predictableNicNames: "true"
+  persistence:
+    ironic:
+      size: "5Gi"
