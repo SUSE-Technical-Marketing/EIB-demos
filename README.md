@@ -1,15 +1,20 @@
 # EIB demos & configurations
 In this repo you'll find a collection of EIB labs and configurations. This is meant to be an upgoing project and I'll be adding more examples.
-In case you don't know about Edge Image Builder you can start:
+In case you don't know about  SUSE Edge and Edge Image Builder you can start:
 
 - https://github.com/suse-edge/edge-image-builder
 - https://suse-edge.github.io/id-suse-edge-documentation.html
+- https://documentation.suse.com/suse-edge/3.3/html/edge/index.html
 
-** NOTE: Part of the content on this repo has been created by my colleagues Alberto Morgante, Atanas Dinov and Christophe Le Dorze.**
+Inside each one of the folders you'll find the different demos with their own instructions.
 
 ## List of demos
 
+- Arm K3s single node cluster ../arm-k3s-single/
+
 - Single cluster Rancher management cluster for SUSE ATIP. ../mgmt-single-node/
+
+- HA management cluster configurations ../mgmt-ha/
 
 - Single node k3s demo + Helm chart deployment ../k3s-snode-helm/
 
