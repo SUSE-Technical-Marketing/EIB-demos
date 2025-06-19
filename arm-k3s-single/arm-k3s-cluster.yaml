@@ -2,7 +2,7 @@ apiVersion: 1.2
 image:
   imageType: raw
   arch: aarch64
-  baseImage: SL-Micro.aarch64-6.1-Default-GM.raw.xz
+  baseImage: SL-Micro.aarch64-6.1-Default-GM.raw
   outputImageName: arm-k3s-cluster.raw
 operatingSystem:
   rawConfiguration:
